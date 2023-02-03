@@ -1,12 +1,6 @@
-// Ma clé
-// 6d8d9cf290d5361d791c399e738096b4
-
-// Clé de Mourad
-// e5f50616c148ee9b955e99c2657c32b7
-
 // Au chargement de la page
 $(document).ready(function () {
-  const APIKEY = "e5f50616c148ee9b955e99c2657c32b7";
+  const APIKEY = "AJOUTER LA CLE";
 
   function getWeather(city) {
     // URL API
