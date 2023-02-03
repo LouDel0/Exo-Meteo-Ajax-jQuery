@@ -12,7 +12,7 @@
   <link href="style.css" rel="stylesheet">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
 
   <!-- jQuery via CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -22,39 +22,38 @@
 
 <body>
 
-<div>
-  <button id="find-me">Show my location</button><br />
-  <p id="status"></p>
-
-
-  <h1 class="display-1 text-center mt-5 text-warning"><strong>Ma Météo</strong></h1>
-    <div class="container mt-5 text-center">
+  <div>
+    <h1>Ma Météo</h1>
+    <div class="underline"></div>
+    
+    <div class="search">
       <form id="searchForm" action="index.html">
-        <div class="input-group">
-          <input id="searchInput" type="search" placeholder="Rechercher une ville" class="form-control" required>
-          <input id="submitInput" type="submit" value="Envoyer" class="btn btn-primary">
-        </div>
+        <input id="find-me" type="image" src="/localisateur_min.png">
+        <input id="searchInput" type="search" placeholder="Rechercher une ville"><input id="submitInput" type="submit" value="RECHERCHER">
+        <input id="resetAllInput" type="image" src="/poubelle.png">
+        <p id="status"></p>
       </form>
     </div>
-  
-    <div class="container mt-5 text-center">
-      <input id="resetAllInput" type="reset" value="Effacer le tableau" class="btn btn-danger">
+    
+    <div>
     </div>
     
-  <div class="container mt-5 align-self-center">
-    <table class="table table-bordered table-striped table-hover text-center">
-      <thead class="text-uppercase h6 table-light">
-        <tr>
-          <td>Ville</td>
-          <td>Température</td>
-          <td>Météo</td>
-        </tr>
-      </thead>
-      <tbody id="bodytab" class="table-dark align-middle">
-      </tbody>
-    </table>
-  </div>
-      
+    <div>
+      <table>
+        <thead>
+          <th>
+            <td>Date d'ajout</td>
+            <td>Ville</td>
+            <td>Température</td>
+            <td>Météo</td>
+            <td>Humidité %</td>
+          </th>
+        </thead>
+        <tbody id="bodytab">
+        </tbody>
+      </table>
+    </div>
+    
     <div id="confirmResetAll">
       <div class="form formConfirmResetAll text-center">
         <form action="index.html">
@@ -64,7 +63,7 @@
         </form>
       </div>
     </div>
-  
+    
     <div id="confirmResetOne">
       <div class="form formConfirmResetOne text-center">
         <form action="index.html">
@@ -74,19 +73,20 @@
         </form>
       </div>
     </div>
-  
+    
     <div class="container text-center ">
       <span class="text-success"></span>
     </div>
-
-</div>
-
-
-
+    
+  </div>
+  
+  
+  
 </body>
 <!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
 <!-- Js -->
+
 <script src="main.js"></script>
 
 </html>

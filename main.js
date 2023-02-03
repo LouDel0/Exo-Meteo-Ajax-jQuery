@@ -1,6 +1,6 @@
 // Au chargement de la page
 $(document).ready(function () {
-  const APIKEY = "AJOUTER LA CLE";
+  const APIKEY = "6d8d9cf290d5361d791c399e738096b4";
 
   function getWeather(city) {
     // URL API
@@ -16,12 +16,22 @@ $(document).ready(function () {
         const temp = (data.main.temp - 273.15).toFixed(0) + " °C";
         const img = data.weather[0].icon;
         const icon = `http://openweathermap.org/img/wn/${img}.png`;
-        console.log(cityList);
-        // Affichage des données dans le fichier HTML
-        const newLine = `<tr><td>${city}</td><td>${temp}</td><td><img src="${icon}"/></td></tr>`;
-        $("tbody").append(newLine);
+        const humidity = data.main.humidity;
 
-        addCity(city, temp, icon);
+        let date1 = new Date();
+        let dateLocale = date1.toLocaleString("fr-FR", {
+          year: "numeric",
+          month: "numeric",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        });
+
+        // Affichage des données dans le fichier HTML
+        const newLine = `<tr><td>${dateLocale}</td><td>${city}</td><td>${temp}</td><td><img src="${icon}"/></td><td>${humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`;
+        $("tbody").prepend(newLine);
+
+        addCity(city, temp, icon, dateLocale, humidity);
       },
     });
   }
@@ -46,7 +56,7 @@ $(document).ready(function () {
 
   // Ajout d'une ville dans le localStorage et récupération des données contenues à l'intérieur
   let cityList = [];
-  function addCity(city, temp, icon) {
+  function addCity(city, temp, icon, dateLocale, humidity) {
     if (localStorage.getItem("city_list")) {
       cityList = JSON.parse(localStorage.getItem("city_list"));
     } else {
@@ -56,21 +66,21 @@ $(document).ready(function () {
       city: city,
       temperature: temp,
       icon: icon,
+      date: dateLocale,
+      humidity: humidity,
     });
     localStorage.setItem("city_list", JSON.stringify(cityList));
     console.log("cityList, end function add()", cityList);
   }
 
-  // Afficher les villes sotckées dans LS
   displayCity();
-
   // Affichage des villes stockées dans localStorage
   function displayCity() {
     cityList = JSON.parse(localStorage.getItem("city_list"));
     if (cityList && cityList.length > 0) {
       for (var i = 0; i < cityList.length; i++) {
-        $("tbody").append(
-          `<tr><td>${cityList[i].city}</td><td>${cityList[i].temperature}</td><td><img src="${cityList[i].icon}"/></td></tr>`
+        $("tbody").prepend(
+          `<tr><td>${cityList[i].date}</td><td>${cityList[i].city}</td><td>${cityList[i].temperature}</td><td><img src="${cityList[i].icon}"/></td><td>${cityList[i].humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`
         );
       }
     } else {
@@ -133,7 +143,6 @@ $(document).ready(function () {
       });
     });
   });
-
   // Géolocalisation avec openstreetmap.
   // Nb de requêtes limitées !!
   $("#find-me").click(function () {
@@ -153,12 +162,8 @@ $(document).ready(function () {
           `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`
         );
         const data = await response.json();
-        console.log(data.address.town);
-        console.log(data.address.city);
-        console.log(data.address.village);
-        console.log(data.address.state);
 
-        const cityLocalisation =
+        cityLocalisation =
           data.address.town ||
           data.address.city ||
           data.address.village ||
@@ -172,7 +177,6 @@ $(document).ready(function () {
     function error() {
       status.text("Unable to retrieve your location");
     }
-
     if (!navigator.geolocation) {
       status.text("Geolocation is not supported by your browser");
     } else {
