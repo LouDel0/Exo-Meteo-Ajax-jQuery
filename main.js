@@ -139,4 +139,51 @@ $(document).ready(function () {
       });
     });
   });
+
+  // Géolocalisation avec openstreetmap.
+  // Nb de requêtes limitées !!
+  $("#find-me").click(function () {
+    const status = $("#status");
+
+    function success(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      status.text("");
+
+      // Convertir les coordonnées en adresse
+      getCityFromCoordinates(latitude, longitude);
+
+      async function getCityFromCoordinates(lat, lng) {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`
+        );
+        const data = await response.json();
+        console.log(data.address.town);
+        console.log(data.address.city);
+        console.log(data.address.village);
+        console.log(data.address.state);
+
+        const cityLocalisation =
+          data.address.town ||
+          data.address.city ||
+          data.address.village ||
+          data.address.state;
+
+        $("#searchInput").val(cityLocalisation);
+      }
+    }
+
+    // Si erreur
+    function error() {
+      status.text("Unable to retrieve your location");
+    }
+
+    if (!navigator.geolocation) {
+      status.text("Geolocation is not supported by your browser");
+    } else {
+      status.text("Locating…");
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
+  });
 });
