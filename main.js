@@ -62,13 +62,19 @@ $(document).ready(function () {
     } else {
       cityList = [];
     }
-    cityList.push({
+    let dataCount = cityList.length;
+    cityList.unshift({
+      index: dataCount + 1,
       city: city,
       temperature: temp,
       icon: icon,
       date: dateLocale,
       humidity: humidity,
     });
+    cityList.sort(function (a, b) {
+      return b.index - a.index;
+    });
+
     localStorage.setItem("city_list", JSON.stringify(cityList));
     console.log("cityList, end function add()", cityList);
   }
@@ -78,6 +84,9 @@ $(document).ready(function () {
   function displayCity() {
     cityList = JSON.parse(localStorage.getItem("city_list"));
     if (cityList && cityList.length > 0) {
+      cityList.sort(function (a, b) {
+        return a.index - b.index;
+      });
       for (var i = 0; i < cityList.length; i++) {
         $("tbody").prepend(
           `<tr><td>${cityList[i].date}</td><td>${cityList[i].city}</td><td>${cityList[i].temperature}</td><td><img src="${cityList[i].icon}"/></td><td>${cityList[i].humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`
@@ -98,12 +107,18 @@ $(document).ready(function () {
 
   //Supprimer une ligne au clic
   $("tbody").on("click", "#resetOneInput", function (event) {
-    $("#confirmResetOne").show();
+    $("#confirmResetOne").toggle();
 
     const index = $(event.target).closest("tr").index();
     let cityList = JSON.parse(localStorage.getItem("city_list"));
     const cityName = cityList[index].city;
-    $("#deleteOne").append(`Voulez-vous supprimer la ville de ${cityName} ?`);
+    $("#deleteOne")
+      .empty()
+      .append(`Voulez-vous supprimer la ville de ${cityName} ?`);
+
+    console.log(index);
+    console.log(event.target);
+    console.log(cityName);
 
     $("#confirmResetOne #confirm").click(function () {
       if (cityList != null) {
@@ -184,4 +199,23 @@ $(document).ready(function () {
       navigator.geolocation.getCurrentPosition(success, error);
     }
   });
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100
+    ) {
+      document.getElementById("mainTitle").style.textAlign = "left";
+      document.getElementById("mainTitle").style.fontSize = "40px";
+      document.querySelector(".underline").style.margin = "0";
+    } else {
+      document.getElementById("mainTitle").style.textAlign = "center";
+      document.getElementById("mainTitle").style.fontSize = "70px";
+      document.querySelector(".underline").style.margin = "auto";
+    }
+  }
 });
