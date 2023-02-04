@@ -97,13 +97,13 @@ $(document).ready(function () {
   });
 
   //Supprimer une ligne au clic
-  $("tbody").on("click", "tr", function (event) {
+  $("tbody").on("click", "#resetOneInput", function (event) {
     $("#confirmResetOne").show();
 
     const index = $(event.target).closest("tr").index();
     let cityList = JSON.parse(localStorage.getItem("city_list"));
     const cityName = cityList[index].city;
-    $("p").append(`Voulez-vous supprimer la ville de ${cityName} ?`);
+    $("#deleteOne").append(`Voulez-vous supprimer la ville de ${cityName} ?`);
 
     $("#confirmResetOne #confirm").click(function () {
       if (cityList != null) {
@@ -112,12 +112,12 @@ $(document).ready(function () {
       }
       $(event.target).closest("tr").remove();
       $("#confirmResetOne").hide();
-      $("p").empty();
+      $("#deleteOne").empty();
     });
 
     $("#confirmResetOne #cancel").click(function () {
       $("#confirmResetOne").hide();
-      $("p").empty();
+      $("#deleteOne").empty();
     });
   });
 

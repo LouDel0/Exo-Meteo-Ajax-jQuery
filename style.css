@@ -50,6 +50,7 @@ h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
     letter-spacing: 2px;
+    transition: 0.3s;
 }
 
 #submitInput:hover {
@@ -62,18 +63,28 @@ table {
     text-align: center;
     margin: auto;
     margin-top: 100px;
+    border-collapse : collapse;
 }
 
 thead{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 30px;
     height: 100px;
-    border: 1px solid black;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.212);
 }
 
 tbody {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.192);
+    transition: 0.2s;
 }
 
 td {
@@ -111,6 +122,7 @@ td {
 }
 
 
+
 #confirmResetAll {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -121,40 +133,83 @@ td {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.863); /* Black w/ opacity */
 }
-
 
 .formConfirmResetAll {
-    background-color: #fefefe;
+    background-color: #272727c9;
+    border: 4px solid rgba(255, 208, 0, 0.575);
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%;
+    margin-top: 100px;
+    height: 200px;
+    width: 42%;
     border-radius: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.formConfirmResetAll p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(216, 215, 215);
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.formConfirmResetAll #confirm {
+    height: 40px;
+    width:10em;
+    background-color: rgba(255, 0, 0, 0.63);
+    border: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+    text-align: center;
+    border-radius: 10px;
+    margin-right: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.formConfirmResetAll #confirm:hover {
+    background-color: rgba(255, 0, 0, 0.945);
+}
+
+
+.formConfirmResetAll #cancel {
+    height: 40px;
+    width:10em;
+    background-color: rgba(255, 255, 255, 0.842);
+    border: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(48, 47, 47);
+    letter-spacing: 2px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.formConfirmResetAll #cancel:hover {
+    background-color: rgba(173, 173, 173, 0.842);
+}
+
+
+
+
 #confirmResetOne {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 10; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+display: none;
 }
 
 
 .formConfirmResetOne {
     background-color: #fefefe;
-    margin: auto;
+    color: black;
+    /*margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 70%;
-    border-radius: 15px;
+    border-radius: 15px; */
 }
+
