@@ -32,23 +32,6 @@
       </form>
     </div>
     
-    <div>
-    </div>
-    
-    <div>
-      <table>
-        <thead>
-            <td>Date</td>
-            <td>Ville</td>
-            <td>Température</td>
-            <td>Météo</td>
-            <td>Humidité</td>
-        </thead>
-        <tbody id="bodytab">
-        </tbody>
-      </table>
-    </div>
-    
     <div id="confirmResetAll">
       <div class="formConfirmResetAll">
         <form action="index.html">
@@ -58,16 +41,32 @@
         </form>
       </div>
     </div>
+
     
-    <div id="confirmResetOne">
-      <div class="form formConfirmResetOne text-center">
-        <form action="index.html">
-          <p id="deleteOne"></p>
-          <input id="confirm" value="Confirmer" class="btn btn-danger">
-          <input id="cancel" value="Annuler" class="btn btn-outline-secondary">
-        </form>
-      </div>
+    <div>
+      <table>
+        <thead>
+          <td>Date</td>
+          <td>Ville</td>
+          <td>Température</td>
+          <td>Météo</td>
+          <td>Humidité</td>
+        </thead>
+        <tbody id="bodytab">
+          <td>
+            <div id="confirmResetOne" class="formConfirmResetOne">
+              <form action="index.html">
+                <p id="deleteOne"></p>
+                <input id="confirm" value="Confirmer">
+                <input id="cancel" value="Annuler">
+              </form>
+          </div>
+          </td>
+        </tbody>
+      </table>
     </div>
+    
+    
     
     
     <span></span>

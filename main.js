@@ -1,6 +1,6 @@
 // Au chargement de la page
 $(document).ready(function () {
-  const APIKEY = "6d8d9cf290d5361d791c399e738096b4";
+  const APIKEY = "Ajouter une clé";
 
   function getWeather(city) {
     // URL API
@@ -112,13 +112,12 @@ $(document).ready(function () {
     const index = $(event.target).closest("tr").index();
     let cityList = JSON.parse(localStorage.getItem("city_list"));
     const cityName = cityList[index].city;
+    const cityDate = cityList[index].date;
     $("#deleteOne")
       .empty()
-      .append(`Voulez-vous supprimer la ville de ${cityName} ?`);
-
-    console.log(index);
-    console.log(event.target);
-    console.log(cityName);
+      .append(
+        `Voulez-vous supprimer la ville de <br>${cityName}, le ${cityDate} ?`
+      );
 
     $("#confirmResetOne #confirm").click(function () {
       if (cityList != null) {

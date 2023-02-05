@@ -4,24 +4,35 @@ body {
     background-attachment: fixed;
 }
 
+
+
+/*------------------------  TITLE -------------------------*/
 h1 {
     color: rgb(255, 208, 0);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    position: sticky;
-    transition: 0.3s;
-    top: 20px;
 
+    text-align: center;
+    font-size: 70px;
+    /* position: sticky;
+    transition: 0.3s;
+    top: 20px; */
 }
 
 .underline {
     border: 1px solid rgb(255, 208, 0);
     width: 150px;
-    position: sticky;
-    top: 80px;
+
+    margin: auto;
+    /* position: sticky;
+    top: 80px; */
 
 }
+
+
+
+/*------------------------ Search Form -------------------------*/
 
 #status {
     color: rgb(216, 215, 215);
@@ -32,6 +43,7 @@ h1 {
 .search {
     display: flex;
     justify-content: space-around;
+    margin-top: 8%;
 }
 
 #find-me {
@@ -67,38 +79,8 @@ h1 {
     transition: 0.3s;
 }
 
-table {
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin: auto;
-    margin-top: 100px;
-    border-collapse : collapse;
-}
 
-thead{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    height: 100px;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.212);
-}
-
-tbody {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-}
-
-tbody tr {
-    transition: 0.2s;
-}
-
-tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.342);
-    transition: 0.2s;
-}
-
-td {
-    width: 15%;
-}
+/*------------------------ RESET ALL -------------------------*/
 
 #resetAllInput {
     height: 60px;
@@ -117,20 +99,7 @@ td {
     50% { transform: rotate(0eg); }
     75% { transform: rotate(-5deg); }
     100% { transform: rotate(0deg); }
-  }
-
-
-#resetOneInput {
-    height: 50px;
-    vertical-align: middle;
-    transition: 0.3s;
 }
-#resetOneInput:hover {
-    margin-right: 30px;
-    transition: 0.3s;
-}
-
-
 
 #confirmResetAll {
     display: none; /* Hidden by default */
@@ -206,19 +175,120 @@ td {
 
 
 
+/*------------------------ TABLEAU -------------------------*/
+
+
+table {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+    border-collapse : collapse;
+    position: relative;
+}
+
+thead{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    height: 100px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.212);
+}
+
+tbody {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.342);
+    transition: 0.2s;
+}
+
+td {
+    width: 15%;
+}
+
+
+/*------------------------ RESET ONE -------------------------*/
+
+#resetOneInput {
+    height: 50px;
+    vertical-align: middle;
+    transition: 0.3s;
+}
+
+#resetOneInput:hover {
+    margin-right: 30px;
+    transition: 0.3s;
+}
+
 
 #confirmResetOne {
 display: none;
+white-space: nowrap;
+font-size: 15px;
+width: 100%;
+height: 100%;
+left: 0;
+position: absolute;
+top: 0;
 }
-
 
 .formConfirmResetOne {
-    background-color: #fefefe;
-    color: black;
-    /*margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%;
-    border-radius: 15px; */
+    background-color: #000000f5;
+    color: rgb(255, 255, 255);
 }
 
+.formConfirmResetOne p {
+    vertical-align: middle;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(216, 215, 215);
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.formConfirmResetOne #confirm {
+    height: 40px;
+    width:10em;
+    background-color: rgba(255, 0, 0, 0.63);
+    border: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+    text-align: center;
+    border-radius: 10px;
+    margin-right: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.formConfirmResetOne #confirm:hover {
+    background-color: rgba(255, 0, 0, 0.945);
+}
+
+
+.formConfirmResetOne #cancel {
+    height: 40px;
+    width:10em;
+    background-color: rgba(255, 255, 255, 0.842);
+    border: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(48, 47, 47);
+    letter-spacing: 2px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.formConfirmResetOne #cancel:hover {
+    background-color: rgba(173, 173, 173, 0.842);
+}
+
+#deleteOne {
+    line-height: 2;
+}
