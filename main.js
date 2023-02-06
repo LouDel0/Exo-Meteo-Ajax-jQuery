@@ -36,24 +36,6 @@ $(document).ready(function () {
     });
   }
 
-  // Autocomplétion, ne fonctionne pas très bien
-  // $("#searchInput").autocomplete({
-  //   source: function (request, response) {
-  //     $.getJSON(
-  //       "http://api.openweathermap.org/data/2.5/find?q=" +
-  //         request.term +
-  //         "&appid=" +
-  //         APIKEY,
-  //       function (data) {
-  //         let cities = data.list.map(function (city) {
-  //           return city.name;
-  //         });
-  //         response(cities);
-  //       }
-  //     );
-  //   },
-  // });
-
   // Ajout d'une ville dans le localStorage et récupération des données contenues à l'intérieur
   let cityList = [];
   function addCity(city, temp, icon, dateLocale, humidity) {
@@ -198,4 +180,28 @@ $(document).ready(function () {
       navigator.geolocation.getCurrentPosition(success, error);
     }
   });
+
+  //Mobile
+
+  $("#menu").click(function () {
+    $(".tools").toggle();
+  });
 });
+
+// Autocomplétion, ne fonctionne pas très bien
+// $("#searchInput").autocomplete({
+//   source: function (request, response) {
+//     $.getJSON(
+//       "http://api.openweathermap.org/data/2.5/find?q=" +
+//         request.term +
+//         "&appid=" +
+//         APIKEY,
+//       function (data) {
+//         let cities = data.list.map(function (city) {
+//           return city.name;
+//         });
+//         response(cities);
+//       }
+//     );
+//   },
+// });
