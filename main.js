@@ -1,6 +1,6 @@
 // Au chargement de la page
 $(document).ready(function () {
-  const APIKEY = "6d8d9cf290d5361d791c399e738096b4";
+  const APIKEY = "CLE";
 
   function getWeather(city) {
     // URL API
