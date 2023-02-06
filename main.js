@@ -1,6 +1,6 @@
 // Au chargement de la page
 $(document).ready(function () {
-  const APIKEY = "Ajouter une clé";
+  const APIKEY = "6d8d9cf290d5361d791c399e738096b4";
 
   function getWeather(city) {
     // URL API
@@ -28,7 +28,7 @@ $(document).ready(function () {
         });
 
         // Affichage des données dans le fichier HTML
-        const newLine = `<tr><td>${dateLocale}</td><td>${city}</td><td>${temp}</td><td><img src="${icon}"/></td><td>${humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`;
+        const newLine = `<tr><td class='date'>${dateLocale}</td><td>${city}</td><td>${temp}</td><td><img src="${icon}"/></td><td>${humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`;
         $("tbody").prepend(newLine);
 
         addCity(city, temp, icon, dateLocale, humidity);
@@ -89,7 +89,7 @@ $(document).ready(function () {
       });
       for (var i = 0; i < cityList.length; i++) {
         $("tbody").prepend(
-          `<tr><td>${cityList[i].date}</td><td>${cityList[i].city}</td><td>${cityList[i].temperature}</td><td><img src="${cityList[i].icon}"/></td><td>${cityList[i].humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`
+          `<tr><td class='date'>${cityList[i].date}</td><td>${cityList[i].city}</td><td>${cityList[i].temperature}</td><td><img src="${cityList[i].icon}"/></td><td>${cityList[i].humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`
         );
       }
     } else {
@@ -198,23 +198,4 @@ $(document).ready(function () {
       navigator.geolocation.getCurrentPosition(success, error);
     }
   });
-
-  window.onscroll = function () {
-    scrollFunction();
-  };
-
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 100 ||
-      document.documentElement.scrollTop > 100
-    ) {
-      document.getElementById("mainTitle").style.textAlign = "left";
-      document.getElementById("mainTitle").style.fontSize = "40px";
-      document.querySelector(".underline").style.margin = "0";
-    } else {
-      document.getElementById("mainTitle").style.textAlign = "center";
-      document.getElementById("mainTitle").style.fontSize = "70px";
-      document.querySelector(".underline").style.margin = "auto";
-    }
-  }
 });

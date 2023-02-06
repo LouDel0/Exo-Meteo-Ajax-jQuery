@@ -19,26 +19,30 @@
 
 <body>
 
-  <div>
-    <h1 id="mainTitle">Ma Météo</h1>
-    <div class="underline"></div>
-    
-    <p id="status"></p>
-    <div class="search">
-      <form id="searchForm" action="index.html">
-        <input id="find-me" type="image" src="/localisateur_min.png">
-        <input id="searchInput" type="search" placeholder="Rechercher une ville"><input id="submitInput" type="submit" value="RECHERCHER">
-        <input id="resetAllInput" type="image" src="/poubelle.png">
-      </form>
-    </div>
-    
-    <div id="confirmResetAll">
-      <div class="formConfirmResetAll">
-        <form action="index.html">
-          <p>Voulez-vous supprimer toutes les villes ?</p>
-          <input id="confirm" value="Confirmer">
-          <input id="cancel" value="Annuler">
+<header>
+  <h1 id="mainTitle">Ma Météo</h1>
+  <div class="underline"></div>
+</header>
+
+  <img class="menu" src="plus.png" alt="menu">
+    <div class="tools">
+      <p id="status"></p>
+      <div class="search">
+        <form id="searchForm" action="index.html">
+          <input id="find-me" type="image" src="/localisateur_min.png">
+          <input id="searchInput" type="search" placeholder="Rechercher une ville"><input id="submitInput" type="submit" value="RECHERCHER">
+          <input id="resetAllInput" type="image" src="/poubelle.png">
         </form>
+      </div>
+      
+      <div id="confirmResetAll">
+        <div class="formConfirmResetAll">
+          <form action="index.html">
+            <p>Voulez-vous supprimer toutes les villes ?</p>
+            <input id="confirm" value="Confirmer">
+            <input id="cancel" value="Annuler">
+          </form>
+        </div>
       </div>
     </div>
 

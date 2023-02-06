@@ -34,6 +34,11 @@ h1 {
 
 /*------------------------ Search Form -------------------------*/
 
+.menu {
+    height: 40px;
+
+}
+
 #status {
     color: rgb(216, 215, 215);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -43,7 +48,7 @@ h1 {
 .search {
     display: flex;
     justify-content: space-around;
-    margin-top: 8%;
+    margin-top: 5%;
 }
 
 #find-me {
@@ -182,7 +187,7 @@ table {
     color: rgb(255, 255, 255);
     text-align: center;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 80px;
     border-collapse : collapse;
     position: relative;
 }
@@ -230,25 +235,27 @@ td {
 #confirmResetOne {
 display: none;
 white-space: nowrap;
-font-size: 15px;
 width: 100%;
 height: 100%;
-left: 0;
 position: absolute;
+left: 0;
 top: 0;
+background-color: #000000f5;
+color: rgb(255, 255, 255);
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.formConfirmResetOne {
-    background-color: #000000f5;
-    color: rgb(255, 255, 255);
+#confirmResetOne form {
+    margin-top: 50%;
 }
 
-.formConfirmResetOne p {
+
+#deleteOne {
     vertical-align: middle;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(216, 215, 215);
     font-size: 20px;
     margin-bottom: 50px;
+    line-height: 2;
 }
 
 .formConfirmResetOne #confirm {
@@ -256,7 +263,6 @@ top: 0;
     width:10em;
     background-color: rgba(255, 0, 0, 0.63);
     border: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
     letter-spacing: 2px;
     text-align: center;
@@ -276,7 +282,6 @@ top: 0;
     width:10em;
     background-color: rgba(255, 255, 255, 0.842);
     border: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(48, 47, 47);
     letter-spacing: 2px;
     text-align: center;
@@ -289,6 +294,38 @@ top: 0;
     background-color: rgba(173, 173, 173, 0.842);
 }
 
-#deleteOne {
-    line-height: 2;
-}
+
+/*------------------------ MOBILE -------------------------*/
+@media only screen and (max-width: 870px) {
+    h1 {
+        font-size: 30px;
+        text-align: start;
+    }
+    
+    .underline {
+        width: 180px;
+        margin-left: 0;
+    }
+    
+    .tools {
+        display: none;
+    }
+
+    thead {
+        font-size: 11px;
+        height: auto;
+    }
+
+    tbody {
+        font-size: 11px;
+    }
+
+    #resetOneInput {
+        height: 20px;
+    }
+
+    .date {
+        font-size: 9px;
+    }
+
+  }
