@@ -185,7 +185,16 @@ $(document).ready(function () {
 
   $("#menu").click(function () {
     $(".tools").toggle();
-    $(".tools").css("top", "0");
+
+    $(".tools").css({"top":"50px"});
+
+    
+    $(this).css("transition", "transform 0.5s ease");
+    if ($(this).css("transform") === "matrix(0, 1, -1, 0, 0, 0)") {
+      $(this).css("transform", "none");
+    } else {
+      $(this).css("transform", "rotate(90deg)");
+    }
   });
 });
 
