@@ -185,6 +185,7 @@ $(document).ready(function () {
 
   $("#menu").click(function () {
     $(".tools").toggle();
+    $(".tools").css("top", "0");
   });
 });
 

@@ -40,9 +40,9 @@ h1 {
 }
 
 .search {
-    /* display: flex;
+    display: flex;
     justify-content: space-around;
-    margin-top: 5%; */
+    margin-top: 5%;
 }
 
 #find-me {
@@ -305,6 +305,8 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
         font-size: 30px;
         text-align: start;
         flex: 1;
+        margin-bottom: 0;
+        margin-top: 0;
     }
     
     .underline {
@@ -318,12 +320,22 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
     
     .tools {
         display: none;
+        position: relative;
+        transition: 0.3s;
+        top:-160px;
+        transition: 0.3s;
+    }
+
+    #find-me {
+        height: 35px;
+        margin-right: 10px;
     }
 
     #searchInput {
-        width: 80%;
+        width: 60%;
         border-radius: 20px 0px 0px 20px;
         display: inline-block;
+        height: 35px;
     }
     
     #submitInput {
@@ -331,6 +343,14 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
         border-radius: 0px 20px 20px 0px;
         color: rgb(2, 154, 255);
         display: inline-block;
+        height: 35px;
+        margin-top: 1px;
+    }
+
+    #resetAllInput {
+        height: 40px;
+        margin-left:45%;
+        margin-top: 15px;
     }
 
     .formConfirmResetAll {
@@ -347,6 +367,10 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
     }
     .formConfirmResetAll p{
         font-size: 13px;
+    }
+
+    table {
+        margin-top: 40px;
     }
 
     thead {
