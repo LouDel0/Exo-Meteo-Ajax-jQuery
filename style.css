@@ -50,9 +50,10 @@ h1 {
     vertical-align: baseline;
     transition: 0.3s;
     margin-right: 30px;
+    cursor: pointer;
 }
 
-#find-me:hover {
+#find-me img:hover {
     transform: scale(1.2);
     transition: 0.3s;
 }
@@ -82,22 +83,23 @@ h1 {
 
 /*------------------------ RESET ALL -------------------------*/
 
-#resetAllInput {
+#resetAllInput img{
     height: 60px;
     vertical-align: middle;
     transition: 0.3s;
     margin-left: 50px;
+    cursor: pointer;
 }
 
-#resetAllInput:hover {
+#resetAllInput img:hover {
     animation: shake 0.5s;
 }
 
 @keyframes shake {
     0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
+    25% { transform: rotate(10deg); }
     50% { transform: rotate(0eg); }
-    75% { transform: rotate(-5deg); }
+    75% { transform: rotate(-10deg); }
     100% { transform: rotate(0deg); }
 }
 
@@ -212,6 +214,17 @@ td {
     width: 15%;
 }
 
+#resetSuccess {
+    color: rgb(224, 184, 2);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+.resetSuccess {
+    margin-top: 15px;
+    text-align: center;
+}
+
 
 /*------------------------ RESET ONE -------------------------*/
 
@@ -237,21 +250,20 @@ left: 0;
 top: 0;
 background-color: #000000f5;
 border: 2px solid rgba(211, 10, 10, 0.603);
-color: rgb(255, 255, 255);
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 margin: 0;
 }
 
 .formResetOne {
     position: fixed;
-    margin-left: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #deleteOne {
-    color: rgb(216, 215, 215);
     font-size: 20px;
-    margin-bottom: 50px;
     line-height: 2;
+    letter-spacing: 2px;
 }
 
 .formConfirmResetOne #confirm {
@@ -356,11 +368,12 @@ margin: 0;
         margin-bottom: 15px;
         text-align: center;
         left: 0;
+        top:-150px;
         border-bottom: 2px solid rgb(224, 184, 2);
     }
 
     #find-me img {
-        height: 40px;
+        height: 38px;
         margin-right: auto;
         margin-left: auto;
     }
@@ -381,8 +394,8 @@ margin: 0;
         margin-top: 1px;
     }
 
-    #resetAllInput {
-        height: 40px;
+    #resetAllInput img{
+        height: 42px;
         margin-left:15px;
 
     }
@@ -408,6 +421,10 @@ margin: 0;
         margin-top: 60px;
     }
 
+    #resetSuccess {
+        font-size: 15px;
+    }
+
     thead {
         font-size: 11px;
         height: auto;
@@ -430,7 +447,7 @@ margin: 0;
         font-size: 10px;
     }
     #deleteOne{
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .date {

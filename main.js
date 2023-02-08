@@ -59,7 +59,6 @@ $(document).ready(function () {
 
     localStorage.setItem("city_list", JSON.stringify(cityList));
     console.log("cityList, end function add()", cityList);
-
   }
 
   displayCity();
@@ -82,13 +81,12 @@ $(document).ready(function () {
 
   // Chercher une ville dans l'API
   $("#searchForm").submit(function (event) {
-    console.log('submit',event)
+    console.log("submit", event);
     const result = $("#searchInput").val();
     getWeather(result);
     event.preventDefault();
-    
-    $("#searchInput").val("");
 
+    $("#searchInput").val("");
   });
 
   //Supprimer une ligne au clic
@@ -102,7 +100,7 @@ $(document).ready(function () {
     $("#deleteOne")
       .empty()
       .append(
-        `Voulez-vous supprimer la ville de <br>${cityName}, le ${cityDate} ?`
+        `Voulez-vous supprimer la ville de <br>${cityName},<br> le ${cityDate} ?`
       );
 
     $("#confirmResetOne #confirm").click(function () {
@@ -123,16 +121,26 @@ $(document).ready(function () {
 
   // Supprimer toutes les lignes (var city, vue et localstorage)
   $("#resetAllInput").click(function () {
-
     $("#confirmResetAll").toggle(function () {
       $("#confirm").click(function () {
         $("tbody").empty();
         localStorage.clear("city_list");
         cityList = [];
         $("#confirmResetAll").hide();
-        $("span").append(
-          "<h5>*** Toutes les villes ont été supprimées. ***</h5>"
-        );
+
+        var displayMessage = true;
+        if (displayMessage) {
+          displayMessage = false;
+          $("#resetSuccess")
+            .text("*** Toutes les villes ont été supprimées. ***")
+            .fadeIn(1000, function () {
+              setTimeout(function () {
+                $("#resetSuccess").fadeOut(500, function () {
+                  displayMessage = true;
+                });
+              }, 3000);
+            });
+        }
       });
 
       $("#confirmResetAll #cancel").click(function () {
@@ -142,9 +150,9 @@ $(document).ready(function () {
   });
   // Géolocalisation avec openstreetmap.
   // Nb de requêtes limitées !!
-  $("#find-me").on('click',function () {
+  $("#find-me").on("click", function () {
     const status = $("#status");
-// debugger
+    // debugger
     function success(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
@@ -167,7 +175,6 @@ $(document).ready(function () {
           data.address.state;
 
         $("#searchInput").val(cityLocalisation);
-
       }
     }
 
@@ -186,11 +193,10 @@ $(document).ready(function () {
   //Mobile
 
   $("#menu").click(function () {
-    $('.tools').animate({
-      top: $('.tools').css('top') === '-150px' ? '48px' : '-150px'
+    $(".tools").animate({
+      top: $(".tools").css("top") === "-150px" ? "48px" : "-150px",
     });
 
-    
     $(this).css("transition", "transform 0.5s ease");
     if ($(this).css("transform") === "matrix(0, 1, -1, 0, 0, 0)") {
       $(this).css("transform", "none");
