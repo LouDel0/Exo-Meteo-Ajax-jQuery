@@ -185,9 +185,15 @@ $(document).ready(function () {
     // Si erreur
     function error() {
       status.text("Unable to retrieve your location");
+      setTimeout(function () {
+        status.text("");
+      }, 3000);
     }
     if (!navigator.geolocation) {
       status.text("Geolocation is not supported by your browser");
+      setTimeout(function () {
+        status.text("");
+      }, 3000);
     } else {
       status.text("Locating…");
       navigator.geolocation.getCurrentPosition(success, error);
