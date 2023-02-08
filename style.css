@@ -120,7 +120,7 @@ h1 {
     background-color: #272727c9;
     border: 4px solid rgba(255, 208, 0, 0.575);
     margin: auto;
-    margin-top: 100px;
+    margin-top: 20%px;
     height: 200px;
     width: 42%;
     border-radius: 15px;
@@ -241,23 +241,21 @@ td {
 
 
 #confirmResetOne {
-display: none;
-white-space: nowrap;
-width: 100%;
-height: 100%;
-position: absolute;
-left: 0;
-top: 0;
-background-color: #000000f5;
-border: 2px solid rgba(211, 10, 10, 0.603);
-margin: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #000000f5;
+    border: 2px solid rgba(211, 10, 10, 0.603);
 }
 
 .formResetOne {
     position: fixed;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    width: 50%;
 }
 
 #deleteOne {
@@ -402,10 +400,10 @@ margin: 0;
 
 
     .formConfirmResetAll {
-    width: 90%;
-    }
+        width: 90%;
+}
 
-    .formConfirmResetAll #confirm{
+.formConfirmResetAll #confirm{
         font-size: 10px;
         height: 25px;
     }
@@ -416,28 +414,39 @@ margin: 0;
     .formConfirmResetAll p{
         font-size: 13px;
     }
-
+    
     table {
         margin-top: 60px;
     }
-
+    
     #resetSuccess {
         font-size: 15px;
     }
-
+    
     thead {
         font-size: 11px;
         height: auto;
+        color: rgb(175, 218, 243);
     }
-
+    
     tbody {
         font-size: 11px;
     }
-
+    
     #resetOneInput {
         height: 20px;
     }
 
+    #resetOneInput:hover {
+        margin-right: 10px;
+        transition: 0.3s;
+    }
+    
+    .formResetOne {
+        margin-top: -10px;
+        width: 100%;
+    }
+    
     .formConfirmResetOne #confirm{
         font-size: 10px;
         height: 25px;

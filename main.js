@@ -12,7 +12,11 @@ $(document).ready(function () {
       success: function (data) {
         // Récupération des données de l'API : nom ville, temp et icone
         // https://openweathermap.org/weather-conditions
-        const city = data.name;
+        const cityRaw = data.name;
+        let city = cityRaw;
+        if (cityRaw.startsWith("Arrondissement de")) {
+          city = cityRaw.replace("Arrondissement de", "");
+        }
         const temp = (data.main.temp - 273.15).toFixed(0) + " °C";
         const img = data.weather[0].icon;
         const icon = `http://openweathermap.org/img/wn/${img}.png`;
@@ -100,7 +104,7 @@ $(document).ready(function () {
     $("#deleteOne")
       .empty()
       .append(
-        `Voulez-vous supprimer la ville de <br>${cityName},<br> le ${cityDate} ?`
+        `Voulez-vous supprimer la ville de <br>${cityName},<br> du ${cityDate} ?`
       );
 
     $("#confirmResetOne #confirm").click(function () {
