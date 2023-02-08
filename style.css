@@ -1,7 +1,8 @@
 body {
-    background-image: url(/clouds-opacity80.png);
+    background-image: url(clouds-opacity80.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    /* overflow: hidden; */
 }
 
 
@@ -40,15 +41,15 @@ h1 {
 }
 
 .search {
-    display: flex;
-    justify-content: space-around;
     margin-top: 5%;
+    justify-content:center;
+    display:flex;
 }
 
-#find-me {
-    vertical-align: middle;
+#find-me img{
+    vertical-align: baseline;
     transition: 0.3s;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 #find-me:hover {
@@ -58,12 +59,12 @@ h1 {
 
 #searchInput {
     height: 40px;
-    width: 40em;
+    width: 100%;
     border: 0;
 }
 
 #submitInput {
-    height: 40px;
+    height: 43px;
     width:10em;
     background-color: rgb(2, 154, 255);
     border: 0;
@@ -85,7 +86,7 @@ h1 {
     height: 60px;
     vertical-align: middle;
     transition: 0.3s;
-    margin-left: 30px;
+    margin-left: 50px;
 }
 
 #resetAllInput:hover {
@@ -239,11 +240,6 @@ color: rgb(255, 255, 255);
 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#confirmResetOne form {
-    margin-top: 50%;
-}
-
-
 #deleteOne {
     vertical-align: middle;
     color: rgb(216, 215, 215);
@@ -293,7 +289,7 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 @media only screen and (max-width: 870px) {
 
     body {
-        background-attachment:scroll;
+        background-size: cover;
     }
 
     header {
@@ -316,18 +312,23 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 
     #menu {
         display: block;
+        z-index: 11;
+    }
+
+    #status {
+        font-size: 12px;
     }
     
     .tools {
-        display: none;
-        position: absolute;
+        position: fixed;
         z-index: 10;
-        top:-160px;
         background-color: rgb(7, 7, 7);
+        transition: top 0.5s;
+        width: 100%;
     }
 
-    #find-me {
-        height: 35px;
+    #find-me img {
+        height: 40px;
         margin-right: 10px;
     }
 
@@ -343,7 +344,7 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
         border-radius: 0px 20px 20px 0px;
         color: rgb(2, 154, 255);
         display: inline-block;
-        height: 35px;
+        height: 38px;
         margin-top: 1px;
     }
 
@@ -384,6 +385,10 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 
     #resetOneInput {
         height: 20px;
+    }
+
+    #confirmResetOne {
+
     }
 
     .formConfirmResetOne #confirm{

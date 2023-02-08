@@ -1,6 +1,6 @@
 // Au chargement de la page
 $(document).ready(function () {
-  const APIKEY = "CLE";
+  const APIKEY = "6d8d9cf290d5361d791c399e738096b4";
 
   function getWeather(city) {
     // URL API
@@ -59,6 +59,7 @@ $(document).ready(function () {
 
     localStorage.setItem("city_list", JSON.stringify(cityList));
     console.log("cityList, end function add()", cityList);
+
   }
 
   displayCity();
@@ -71,7 +72,7 @@ $(document).ready(function () {
       });
       for (var i = 0; i < cityList.length; i++) {
         $("tbody").prepend(
-          `<tr><td class='date'>${cityList[i].date}</td><td>${cityList[i].city}</td><td>${cityList[i].temperature}</td><td><img src="${cityList[i].icon}"/></td><td>${cityList[i].humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`
+          `<tr><td class='date'>${cityList[i].date}</td><td>${cityList[i].city}</td><td>${cityList[i].temperature}</td><td><img src="${cityList[i].icon}"/></td><td>${cityList[i].humidity}</td><td><input id="resetOneInput" type="image" src="supprimer.png"></td></tr>`
         );
       }
     } else {
@@ -80,11 +81,14 @@ $(document).ready(function () {
   }
 
   // Chercher une ville dans l'API
-  $("form").submit(function (event) {
+  $("#searchForm").submit(function (event) {
+    console.log('submit',event)
     const result = $("#searchInput").val();
     getWeather(result);
     event.preventDefault();
+    
     $("#searchInput").val("");
+
   });
 
   //Supprimer une ligne au clic
@@ -118,7 +122,7 @@ $(document).ready(function () {
   });
 
   // Supprimer toutes les lignes (var city, vue et localstorage)
-  $("#resetAllInput").click(function (event) {
+  $("#resetAllInput").click(function () {
     $("#confirmResetAll").toggle(function () {
       $("#confirm").click(function () {
         $("tbody").empty();
@@ -128,10 +132,6 @@ $(document).ready(function () {
         $("span").append(
           "<h5>*** Toutes les villes ont été supprimées. ***</h5>"
         );
-
-        setTimeout(function () {
-          $("span").fadeOut(1000);
-        }, 3000); // disparaît après 5 secondes avec une transition de 1 seconde
       });
 
       $("#confirmResetAll #cancel").click(function () {
@@ -141,9 +141,9 @@ $(document).ready(function () {
   });
   // Géolocalisation avec openstreetmap.
   // Nb de requêtes limitées !!
-  $("#find-me").click(function () {
+  $("#find-me").on('click',function () {
     const status = $("#status");
-
+// debugger
     function success(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
@@ -166,6 +166,7 @@ $(document).ready(function () {
           data.address.state;
 
         $("#searchInput").val(cityLocalisation);
+
       }
     }
 
@@ -184,9 +185,9 @@ $(document).ready(function () {
   //Mobile
 
   $("#menu").click(function () {
-    $(".tools").toggle();
-
-    $(".tools").css({"top":"50px"});
+    $('.tools').animate({
+      top: $('.tools').css('top') === '-150px' ? '50px' : '-150px'
+    });
 
     
     $(this).css("transition", "transform 0.5s ease");
