@@ -28,7 +28,7 @@ $(document).ready(function () {
         });
 
         // Affichage des données dans le fichier HTML
-        const newLine = `<tr><td class='date'>${dateLocale}</td><td>${city}</td><td>${temp}</td><td><img src="${icon}"/></td><td>${humidity}</td><td><input id="resetOneInput" type="image" src="/supprimer.png"></td></tr>`;
+        const newLine = `<tr><td class='date'>${dateLocale}</td><td>${city}</td><td>${temp}</td><td><img src="${icon}"/></td><td>${humidity}</td><td><input id="resetOneInput" type="image" src="supprimer.png"></td></tr>`;
         $("tbody").prepend(newLine);
 
         addCity(city, temp, icon, dateLocale, humidity);
@@ -123,6 +123,7 @@ $(document).ready(function () {
 
   // Supprimer toutes les lignes (var city, vue et localstorage)
   $("#resetAllInput").click(function () {
+
     $("#confirmResetAll").toggle(function () {
       $("#confirm").click(function () {
         $("tbody").empty();
@@ -186,7 +187,7 @@ $(document).ready(function () {
 
   $("#menu").click(function () {
     $('.tools').animate({
-      top: $('.tools').css('top') === '-150px' ? '50px' : '-150px'
+      top: $('.tools').css('top') === '-150px' ? '48px' : '-150px'
     });
 
     

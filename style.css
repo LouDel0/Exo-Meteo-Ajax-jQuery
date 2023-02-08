@@ -59,7 +59,7 @@ h1 {
 
 #searchInput {
     height: 40px;
-    width: 100%;
+    width: 38em;
     border: 0;
 }
 
@@ -236,12 +236,18 @@ position: absolute;
 left: 0;
 top: 0;
 background-color: #000000f5;
+border: 2px solid rgba(211, 10, 10, 0.603);
 color: rgb(255, 255, 255);
 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin: 0;
+}
+
+.formResetOne {
+    position: fixed;
+    margin-left: 50%;
 }
 
 #deleteOne {
-    vertical-align: middle;
     color: rgb(216, 215, 215);
     font-size: 20px;
     margin-bottom: 50px;
@@ -295,6 +301,14 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
     header {
         display: flex;
         align-items: center;
+        position: fixed;
+        background-color: rgb(7, 7, 7);
+        height: 50px;
+        z-index: 10;
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-bottom: 2px solid rgb(224, 184, 2);
     }
     
     h1 {
@@ -303,33 +317,52 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
         flex: 1;
         margin-bottom: 0;
         margin-top: 0;
+        margin-left: 15px;
     }
     
     .underline {
         width: 180px;
         margin-left: 0;
+        height: 15px;
     }
 
     #menu {
         display: block;
         z-index: 11;
+        margin-top: 4px;
     }
+
 
     #status {
         font-size: 12px;
     }
     
+    .search {
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+
+    #searchForm {
+        width: 100%;
+    }
+
+  
     .tools {
         position: fixed;
         z-index: 10;
         background-color: rgb(7, 7, 7);
         transition: top 0.5s;
         width: 100%;
+        margin-bottom: 15px;
+        text-align: center;
+        left: 0;
+        border-bottom: 2px solid rgb(224, 184, 2);
     }
 
     #find-me img {
         height: 40px;
-        margin-right: 10px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     #searchInput {
@@ -350,9 +383,10 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 
     #resetAllInput {
         height: 40px;
-        margin-left:45%;
-        margin-top: 15px;
+        margin-left:15px;
+
     }
+
 
     .formConfirmResetAll {
     width: 90%;
@@ -371,7 +405,7 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
     }
 
     table {
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     thead {
@@ -385,10 +419,6 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 
     #resetOneInput {
         height: 20px;
-    }
-
-    #confirmResetOne {
-
     }
 
     .formConfirmResetOne #confirm{
