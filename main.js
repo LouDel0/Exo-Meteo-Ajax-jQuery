@@ -214,6 +214,13 @@ $(document).ready(function () {
       $(this).css("transform", "rotate(90deg)");
     }
   });
+
+  $(".tools").on("swipedown", function () {
+    alert("swipedown..");
+  });
+  $(".tools").on("swipeup", function () {
+    alert("swipeup..");
+  });
 });
 
 // Autocomplétion, ne fonctionne pas très bien
