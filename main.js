@@ -216,10 +216,10 @@ $(document).ready(function () {
   });
 
   $(".tools").on("swipedown", function () {
-    alert("swipedown..");
+    $(".tools").css("top", "48px");
   });
   $(".tools").on("swipeup", function () {
-    alert("swipeup..");
+    $(".tools").css("top", "-150px");
   });
 });
 
