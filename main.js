@@ -211,7 +211,7 @@ $(document).ready(function () {
     if ($(this).css("transform") === "matrix(0, 1, -1, 0, 0, 0)") {
       $(this).css("transform", "none");
     } else {
-      $(this).css("transform", "rotate(90deg)");
+      $(this).css("transform", "rotate(45deg)");
     }
   });
 
