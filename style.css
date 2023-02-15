@@ -445,10 +445,11 @@ td {
 
     tr {
         transform: translateX(0);
+        transition: transform 1s ease-in-out;
       }
       
     tr.removing {
-        transform: translateX(-110%);
+        transform: translateX(-150%);
     }
 
     tr.deleting {
