@@ -361,13 +361,14 @@ td {
         position: fixed;
         z-index: 10;
         background-color: rgb(7, 7, 7);
-        transition: top 0.5s;
+        transition: top 1s;
         width: 100%;
         margin-bottom: 15px;
         text-align: center;
         left: 0;
         top:-150px;
         border-bottom: 2px solid rgb(224, 184, 2);
+
     }
 
     #find-me img {
@@ -424,23 +425,48 @@ td {
     }
     
     thead {
-        font-size: 11px;
+        font-size: 12px;
         height: auto;
         color: rgb(175, 218, 243);
     }
     
     tbody {
-        font-size: 11px;
+        font-size: 13px;
+    }
+
+    tbody tr {
+        transition: 1.5s;
     }
     
     #resetOneInput {
-        height: 20px;
+        /* height: 20px; */
+        display: none;
     }
 
-    #resetOneInput:hover {
+    tr {
+        transform: translateX(0);
+      }
+      
+    tr.removing {
+        transform: translateX(-110%);
+    }
+
+    tr.deleting {
+        background-color: rgb(241, 126, 126);
+      }
+      
+    .deleteMessage {
+        color: rgb(243, 60, 60);
+        width: 100%;
+    }
+    td {
+        width: 20%;
+    }
+
+    /* #resetOneInput:hover {
         margin-right: 10px;
         transition: 0.3s;
-    }
+    } */
     
     .formResetOne {
         margin-top: -10px;

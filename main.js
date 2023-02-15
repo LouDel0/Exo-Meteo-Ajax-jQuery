@@ -208,19 +208,85 @@ $(document).ready(function () {
     });
 
     $(this).css("transition", "transform 0.5s ease");
-    if ($(this).css("transform") === "matrix(0, 1, -1, 0, 0, 0)") {
+    if ($(this).hasClass("clicked")) {
+      $(this).removeClass("clicked");
       $(this).css("transform", "none");
     } else {
+      $(this).addClass("clicked");
       $(this).css("transform", "rotate(45deg)");
     }
   });
 
-  $(".tools").on("swipedown", function () {
-    $(".tools").css("top", "48px");
-  });
-  $(".tools").on("swipeup", function () {
-    $(".tools").css("top", "-150px");
-  });
+  function swipe() {
+    document.addEventListener("touchstart", handleTouchStart, false);
+    document.addEventListener("touchmove", handleTouchMove, false);
+
+    var xDown = null;
+    var yDown = null;
+
+    function handleTouchStart(evt) {
+      xDown = evt.touches[0].clientX;
+      yDown = evt.touches[0].clientY;
+    }
+
+    function handleTouchMove(evt) {
+      if (!xDown || !yDown) {
+        return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        /*most significant*/
+        if (xDiff > 0) {
+          /* left swipe */
+          const $row = $(event.target).closest("tr");
+          const $deleteRow = $(
+            "<tr><td colspan='5' class='deleteMessage'>Suppression de la ligne...</td></tr>"
+          );
+          const index = $row.index();
+          let cityList = JSON.parse(localStorage.getItem("city_list"));
+          if (cityList != null) {
+            cityList = cityList.filter((d, i) => i !== index);
+            localStorage.setItem("city_list", JSON.stringify(cityList));
+          }
+
+          $deleteRow.insertBefore($row);
+          $row.addClass("removing").addClass("deleting");
+          setTimeout(() => {
+            $row.remove();
+            $deleteRow.remove();
+          }, 1500);
+        } else {
+          /* right swipe */
+          // alert("right swipe");
+        }
+      } else {
+        if (yDiff > 0) {
+          /* up swipe */
+          // alert("up swipe");
+          $("#menu").css("transition", "transform 0.5s ease");
+
+          $("#menu").css("transform", "none");
+          $(".tools").css({ top: "-150px" });
+        } else {
+          /* down swipe */
+          // alert("down swipe");
+          $("#menu").css("transition", "transform 0.5s ease");
+          $("#menu").css("transform", "rotate(45deg)");
+          $(".tools").css({ top: "48px" });
+        }
+      }
+      /* reset values */
+      xDown = null;
+      yDown = null;
+    }
+  }
+  swipe();
 });
 
 // Autocomplétion, ne fonctionne pas très bien
